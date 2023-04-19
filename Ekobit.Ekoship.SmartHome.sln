@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ekobit.Ekoship.SmartHome.WebAPI", "Ekobit.Ekoship.SmartHome.WebAPI\Ekobit.Ekoship.SmartHome.WebAPI.csproj", "{5BCBD289-99EB-4E17-956C-48A857848046}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ekobit.Ekoship.SmartHome.WebAPI", "Ekobit.Ekoship.SmartHome.WebAPI\Ekobit.Ekoship.SmartHome.WebAPI.csproj", "{5BCBD289-99EB-4E17-956C-48A857848046}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ekobit.Ekoship.SmartHome.Services", "Ekobit.Ekoship.SmartHome.Services\Ekobit.Ekoship.SmartHome.Services.csproj", "{53256CA0-DFAA-468F-A8E2-4FBD793708C3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ekobit.Ekoship.SmartHome.Data", "Ekobit.Ekoship.SmartHome.Data\Ekobit.Ekoship.SmartHome.Data.csproj", "{74403FB4-9E4F-4180-8A41-17E35322EA4A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{5BCBD289-99EB-4E17-956C-48A857848046}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5BCBD289-99EB-4E17-956C-48A857848046}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5BCBD289-99EB-4E17-956C-48A857848046}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53256CA0-DFAA-468F-A8E2-4FBD793708C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53256CA0-DFAA-468F-A8E2-4FBD793708C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53256CA0-DFAA-468F-A8E2-4FBD793708C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53256CA0-DFAA-468F-A8E2-4FBD793708C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74403FB4-9E4F-4180-8A41-17E35322EA4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74403FB4-9E4F-4180-8A41-17E35322EA4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74403FB4-9E4F-4180-8A41-17E35322EA4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74403FB4-9E4F-4180-8A41-17E35322EA4A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
