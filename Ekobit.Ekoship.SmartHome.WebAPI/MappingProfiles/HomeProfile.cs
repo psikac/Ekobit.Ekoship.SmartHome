@@ -17,10 +17,7 @@ namespace Ekobit.Ekoship.SmartHome.WebAPI.MappingProfiles
                 .ForMember(_ => _.ZipCode, _ => _.MapFrom(_ => _.Address != null ? _.Address.ZipCode : (int?)null))
                 .ForMember(_ => _.Country, _ => _.MapFrom(_ => _.Address != null ? _.Address.Country : String.Empty));
 
-            CreateMap<HomeCreate, Home>()
-                .ForMember(_ => _.Id, _ => _.Ignore())
-                .ForMember(_ => _.AddressId, _ => _.Ignore())
-                .ForMember(_ => _.Address, _ => _.Ignore());
+            CreateMap<HomeCreate, Home>();
 
             CreateMap<HomeUpdate, Home>();
         }
