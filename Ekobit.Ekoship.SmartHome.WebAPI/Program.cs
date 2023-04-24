@@ -13,10 +13,16 @@ builder.Services.AddDbContext<SmartHomeContext>(options =>
 // Inject repositories
 builder.Services.AddScoped<IAddressRepository, AddressRepository>();
 builder.Services.AddScoped<IHomeRepository, HomeRepository>();
+builder.Services.AddScoped<IDeviceTypeRepository, DeviceTypeRepository>();
+builder.Services.AddScoped<IUnitRepository, UnitRepository>();
+builder.Services.AddScoped<IDeviceRepository, DeviceRepository>();
 
 // Inject services
 builder.Services.AddScoped<IAddressService, AddressService>();
 builder.Services.AddScoped<IHomeService, HomeService>();
+builder.Services.AddScoped<IUnitService, UnitService>();
+builder.Services.AddScoped<IDeviceTypeService, DeviceTypeService>();
+builder.Services.AddScoped<IDeviceService, DeviceService>();
 
 // Inject automapper
 builder.Services.AddAutoMapper(typeof(Program));

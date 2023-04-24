@@ -4,6 +4,7 @@ using Ekobit.Ekoship.SmartHome.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Ekobit.Ekoship.SmartHome.Data.Migrations
 {
     [DbContext(typeof(SmartHomeContext))]
-    partial class SmartHomeContextModelSnapshot : ModelSnapshot
+    [Migration("20230423205028_DevicesAdded")]
+    partial class DevicesAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -64,9 +66,6 @@ namespace Ekobit.Ekoship.SmartHome.Data.Migrations
                     b.Property<float>("CurrentValue")
                         .HasColumnType("real");
 
-                    b.Property<int>("DeviceTypeId")
-                        .HasColumnType("int");
-
                     b.Property<int>("HomeId")
                         .HasColumnType("int");
 
@@ -80,14 +79,15 @@ namespace Ekobit.Ekoship.SmartHome.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("TypeId")
+                        .HasColumnType("int");
+
                     b.Property<int>("UnitId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("DeviceTypeId");
-
-                    b.HasIndex("HomeId");
+                    b.HasIndex("TypeId");
 
                     b.HasIndex("UnitId");
 
@@ -145,10 +145,6 @@ namespace Ekobit.Ekoship.SmartHome.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Symbol")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("Id");
 
                     b.ToTable("Units");
@@ -158,13 +154,7 @@ namespace Ekobit.Ekoship.SmartHome.Data.Migrations
                 {
                     b.HasOne("Ekobit.Ekoship.SmartHome.Data.Models.DeviceType", "Type")
                         .WithMany()
-                        .HasForeignKey("DeviceTypeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Ekobit.Ekoship.SmartHome.Data.Models.Home", "Home")
-                        .WithMany()
-                        .HasForeignKey("HomeId")
+                        .HasForeignKey("TypeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -173,8 +163,6 @@ namespace Ekobit.Ekoship.SmartHome.Data.Migrations
                         .HasForeignKey("UnitId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Home");
 
                     b.Navigation("Type");
 

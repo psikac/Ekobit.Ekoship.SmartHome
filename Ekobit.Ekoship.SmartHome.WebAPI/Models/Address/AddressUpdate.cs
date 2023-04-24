@@ -2,8 +2,6 @@
 {
     public class AddressUpdate
     {
-        public int Id { get; set; }
-
         public string StreetName { get; set; } = null!;
 
         public int Number { get; set; }

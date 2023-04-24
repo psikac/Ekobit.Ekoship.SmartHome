@@ -49,11 +49,12 @@ namespace Ekobit.Ekoship.SmartHome.WebAPI.Controllers
             return Ok(result);
         }
 
-        [HttpPut]
+        [HttpPut("id")]
         [Produces(typeof(int))]
-        public IActionResult UpdateHome([FromBody] HomeUpdate changedHome)
+        public IActionResult UpdateHome([FromBody] HomeUpdate changedHome, int id)
         {
             var home = _mapper.Map<Home>(changedHome);
+            home.Id = id;
             var result = _homeService.UpdateHome(home);
 
             return Ok(result);

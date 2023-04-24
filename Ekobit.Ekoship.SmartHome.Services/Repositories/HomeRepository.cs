@@ -16,7 +16,8 @@ namespace Ekobit.Ekoship.SmartHome.Services.Repositories
 
         public IEnumerable<Home> GetAll()
         {
-            return _context.Homes;
+            return _context.Homes
+                .Include(_ => _.Address);
         }
 
         public Home? GetById(int id)
