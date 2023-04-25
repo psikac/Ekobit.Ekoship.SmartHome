@@ -13,5 +13,5 @@ Kreiranje baze:
 5. Otvoriti konzolu u Visual Studio:\
   a) Alatna traka -> Tools -> NuGet Package Manager -> Package Manager Console\
   b) Iznad otvorene konzole, pod 'Default project' iz dropdown-a odabrati 'Ekobit.Ekoship.SmartHome.Data'\
-  c) U konzoli izvršiti sljedeću komandu: update-database\
+  c) U konzoli izvršiti sljedeću komandu: update-database
 6. Pokrenuti aplikaciju
