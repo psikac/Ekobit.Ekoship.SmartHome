@@ -50,65 +50,7 @@ namespace Ekobit.Ekoship.SmartHome.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Addresses");
-                });
-
-            modelBuilder.Entity("Ekobit.Ekoship.SmartHome.Data.Models.Device", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<float>("CurrentValue")
-                        .HasColumnType("real");
-
-                    b.Property<int>("DeviceTypeId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("HomeId")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime>("LastUpdated")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("UnitId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("DeviceTypeId");
-
-                    b.HasIndex("HomeId");
-
-                    b.HasIndex("UnitId");
-
-                    b.ToTable("Devices");
-                });
-
-            modelBuilder.Entity("Ekobit.Ekoship.SmartHome.Data.Models.DeviceType", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("DeviceTypes");
+                    b.ToTable("Addresses", (string)null);
                 });
 
             modelBuilder.Entity("Ekobit.Ekoship.SmartHome.Data.Models.Home", b =>
@@ -130,55 +72,7 @@ namespace Ekobit.Ekoship.SmartHome.Data.Migrations
 
                     b.HasIndex("AddressId");
 
-                    b.ToTable("Homes");
-                });
-
-            modelBuilder.Entity("Ekobit.Ekoship.SmartHome.Data.Models.Unit", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Symbol")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Units");
-                });
-
-            modelBuilder.Entity("Ekobit.Ekoship.SmartHome.Data.Models.Device", b =>
-                {
-                    b.HasOne("Ekobit.Ekoship.SmartHome.Data.Models.DeviceType", "Type")
-                        .WithMany()
-                        .HasForeignKey("DeviceTypeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Ekobit.Ekoship.SmartHome.Data.Models.Home", "Home")
-                        .WithMany()
-                        .HasForeignKey("HomeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Ekobit.Ekoship.SmartHome.Data.Models.Unit", "Unit")
-                        .WithMany()
-                        .HasForeignKey("UnitId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Home");
-
-                    b.Navigation("Type");
-
-                    b.Navigation("Unit");
+                    b.ToTable("Homes", (string)null);
                 });
 
             modelBuilder.Entity("Ekobit.Ekoship.SmartHome.Data.Models.Home", b =>
