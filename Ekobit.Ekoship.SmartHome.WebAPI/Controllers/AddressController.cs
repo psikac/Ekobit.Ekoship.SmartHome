@@ -29,7 +29,7 @@ namespace Ekobit.Ekoship.SmartHome.WebAPI.Controllers
             return Ok(result);
         }
 
-        [HttpGet("id")]
+        [HttpGet("{id}")]
         [Produces(typeof(AddressDetails))]
         public IActionResult GetAddressById(int id)
         {
@@ -49,7 +49,7 @@ namespace Ekobit.Ekoship.SmartHome.WebAPI.Controllers
             return Ok(result);
         }
 
-        [HttpPut("id")]
+        [HttpPut("{id}")]
         [Produces(typeof(int))]
         public IActionResult UpdateAddress([FromBody] AddressUpdate changedAddress, int id)
         {
@@ -60,7 +60,7 @@ namespace Ekobit.Ekoship.SmartHome.WebAPI.Controllers
             return Ok(result);
         }
 
-        [HttpDelete("id")]
+        [HttpDelete("{id}")]
         [Produces(typeof(bool))]
         public IActionResult DeleteAddress(int id)
         {
