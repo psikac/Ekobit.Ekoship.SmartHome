@@ -6,6 +6,15 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(builder => builder
+      .SetIsOriginAllowed(origin => true)
+      .AllowAnyMethod()
+      .AllowAnyHeader()
+      .AllowCredentials());
+});
+
 // Inject Entity Framework database context
 builder.Services.AddDbContext<SmartHomeContext>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
@@ -21,12 +30,15 @@ builder.Services.AddScoped<IHomeService, HomeService>();
 // Inject automapper
 builder.Services.AddAutoMapper(typeof(Program));
 
+
 // Inject controllers and API infrastructure
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
+
+app.UseCors();
 
 app.UseSwagger();
 app.UseSwaggerUI();
