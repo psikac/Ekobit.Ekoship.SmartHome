@@ -1,17 +1,19 @@
 ﻿namespace Ekobit.Ekoship.SmartHome.Data.Models
 {
-    public class Address
-    {
-        public int Id { get; set; }
+	public class Address
+	{
+		public int Id { get; set; }
 
-        public string StreetName { get; set; } = null!;
+		public string StreetName { get; set; } = null!;
 
-        public int Number { get; set; }
+		public int Number { get; set; }
 
-        public string City { get; set; } = null!;
+		public string City { get; set; } = null!;
 
-        public int ZipCode { get; set; }
+		public int ZipCode { get; set; }
 
-        public string Country { get; set; } = null!;
-    }
+		public string Country { get; set; } = null!;
+
+		public ICollection<Home> Homes { get; set; } = null!;
+	}
 }

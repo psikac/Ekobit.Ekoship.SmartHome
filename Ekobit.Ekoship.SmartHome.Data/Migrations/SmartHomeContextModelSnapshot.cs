@@ -50,7 +50,27 @@ namespace Ekobit.Ekoship.SmartHome.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Addresses", (string)null);
+                    b.ToTable("Addresses");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            City = "Varazdin",
+                            Country = "HR",
+                            Number = 2,
+                            StreetName = "Pavlinska",
+                            ZipCode = 42000
+                        },
+                        new
+                        {
+                            Id = 2,
+                            City = "Varazdin",
+                            Country = "HR",
+                            Number = 5,
+                            StreetName = "Zagrebacka",
+                            ZipCode = 42000
+                        });
                 });
 
             modelBuilder.Entity("Ekobit.Ekoship.SmartHome.Data.Models.Home", b =>
@@ -72,16 +92,35 @@ namespace Ekobit.Ekoship.SmartHome.Data.Migrations
 
                     b.HasIndex("AddressId");
 
-                    b.ToTable("Homes", (string)null);
+                    b.ToTable("Homes");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            AddressId = 1,
+                            Name = "Dvorana 6"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            AddressId = 1,
+                            Name = "Dvorana 7"
+                        });
                 });
 
             modelBuilder.Entity("Ekobit.Ekoship.SmartHome.Data.Models.Home", b =>
                 {
                     b.HasOne("Ekobit.Ekoship.SmartHome.Data.Models.Address", "Address")
-                        .WithMany()
+                        .WithMany("Homes")
                         .HasForeignKey("AddressId");
 
                     b.Navigation("Address");
+                });
+
+            modelBuilder.Entity("Ekobit.Ekoship.SmartHome.Data.Models.Address", b =>
+                {
+                    b.Navigation("Homes");
                 });
 #pragma warning restore 612, 618
         }

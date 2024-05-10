@@ -4,7 +4,7 @@
 
 namespace Ekobit.Ekoship.SmartHome.Data.Migrations
 {
-    public partial class InitialCatalog : Migration
+    public partial class Initial_Migration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -43,6 +43,26 @@ namespace Ekobit.Ekoship.SmartHome.Data.Migrations
                         principalTable: "Addresses",
                         principalColumn: "Id");
                 });
+
+            migrationBuilder.InsertData(
+                table: "Addresses",
+                columns: new[] { "Id", "City", "Country", "Number", "StreetName", "ZipCode" },
+                values: new object[] { 1, "Varazdin", "HR", 2, "Pavlinska", 42000 });
+
+            migrationBuilder.InsertData(
+                table: "Addresses",
+                columns: new[] { "Id", "City", "Country", "Number", "StreetName", "ZipCode" },
+                values: new object[] { 2, "Varazdin", "HR", 5, "Zagrebacka", 42000 });
+
+            migrationBuilder.InsertData(
+                table: "Homes",
+                columns: new[] { "Id", "AddressId", "Name" },
+                values: new object[] { 1, 1, "Dvorana 6" });
+
+            migrationBuilder.InsertData(
+                table: "Homes",
+                columns: new[] { "Id", "AddressId", "Name" },
+                values: new object[] { 2, 1, "Dvorana 7" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Homes_AddressId",
