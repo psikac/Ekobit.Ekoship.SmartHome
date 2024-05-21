@@ -50,28 +50,7 @@ namespace Ekobit.Ekoship.SmartHome.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Addresses");
-                });
-
-            modelBuilder.Entity("Ekobit.Ekoship.SmartHome.Data.Models.Device", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("SerialNr")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Devices");
+                    b.ToTable("Addresses", (string)null);
                 });
 
             modelBuilder.Entity("Ekobit.Ekoship.SmartHome.Data.Models.Home", b =>
@@ -85,9 +64,6 @@ namespace Ekobit.Ekoship.SmartHome.Data.Migrations
                     b.Property<int?>("AddressId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("DeviceId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -96,9 +72,7 @@ namespace Ekobit.Ekoship.SmartHome.Data.Migrations
 
                     b.HasIndex("AddressId");
 
-                    b.HasIndex("DeviceId");
-
-                    b.ToTable("Homes");
+                    b.ToTable("Homes", (string)null);
                 });
 
             modelBuilder.Entity("Ekobit.Ekoship.SmartHome.Data.Models.Home", b =>
@@ -107,13 +81,7 @@ namespace Ekobit.Ekoship.SmartHome.Data.Migrations
                         .WithMany()
                         .HasForeignKey("AddressId");
 
-                    b.HasOne("Ekobit.Ekoship.SmartHome.Data.Models.Device", "Device")
-                        .WithMany()
-                        .HasForeignKey("DeviceId");
-
                     b.Navigation("Address");
-
-                    b.Navigation("Device");
                 });
 #pragma warning restore 612, 618
         }
